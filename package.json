@@ -1,0 +1,19 @@
+{
+  "name": "yuuki",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/yuuki.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kotlia/yuuki.git"
+  },
+  "author": "Kotlia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Kotlia/yuuki/issues"
+  },
+  "homepage": "https://github.com/Kotlia/yuuki#readme"
+}

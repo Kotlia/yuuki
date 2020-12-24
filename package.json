@@ -2,9 +2,10 @@
   "name": "yuuki",
   "version": "1.0.0",
   "description": "",
-  "main": "src/yuuki.js",
+  "main": "src/index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/Kotlia/yuuki/issues"
   },
-  "homepage": "https://github.com/Kotlia/yuuki#readme"
+  "homepage": "https://github.com/Kotlia/yuuki#readme",
+  "dependencies": {
+    "discord.io": "^2.5.3",
+    "discord.js": "^12.5.1",
+    "fs": "^0.0.1-security",
+    "js-yaml": "^3.14.1",
+    "npx": "^10.2.2"
+  }
 }

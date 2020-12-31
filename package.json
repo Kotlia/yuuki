@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "type": "module",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node --trace-warnings src/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +18,20 @@
   },
   "homepage": "https://github.com/Kotlia/yuuki#readme",
   "dependencies": {
+    "@discordjs/opus": "^0.3.3",
+    "child_process": "^1.0.2",
     "discord.io": "^2.5.3",
     "discord.js": "^12.5.1",
+    "ffmpeg": "^0.0.4",
+    "ffmpeg-static": "^4.2.7",
     "fs": "^0.0.1-security",
     "js-yaml": "^3.14.1",
     "lodash": "^4.17.20",
-    "npx": "^10.2.2"
+    "node-fetch": "^2.6.1",
+    "npx": "^10.2.2",
+    "readline-promise": "^1.0.5",
+    "readline-sync": "^1.4.10",
+    "voicetext.js": "^1.0.7",
+    "webhook-discord": "^3.7.7"
   }
 }

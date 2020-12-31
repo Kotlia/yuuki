@@ -1,6 +1,7 @@
 import yaml from "js-yaml";
 import fs from "fs";
 import Yuuki from "./yuuki.js";
+import _ from 'lodash'
 
 /**
  * @type {{
@@ -20,7 +21,7 @@ import Yuuki from "./yuuki.js";
 
 export const Config = yaml.safeLoad(fs.readFileSync('src/assets/bot.yml'))
 
-Config.raw = _.zip(...Object.entries(_.zip(...Object.entries(Yuuki.config.channels))[1]))[1]
+Config.raw = _.zip(...Object.entries(_.zip(...Object.entries(Config.channels))[1]))[1]
 
 Config.textChannels = []
 Config.voiceChannels = []

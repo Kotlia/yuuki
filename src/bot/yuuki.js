@@ -1,8 +1,9 @@
 import Client from "./client.js";
 import { commandProcessor } from "./message/commandProcesser.js";
 import { Config } from "./config.js";
-import Voice  from "./message/voice.js";
+import VoiceManager from "./voice/voiceManager.js";
 import { transliterate } from "./message/transliterate.js";
+import wd from 'webhook-discord'
 
 export default class Yuuki {
 
@@ -10,16 +11,20 @@ export default class Yuuki {
         Client.JS.on('message', async msg => {
             if (msg.content.startsWith('/')) {
                 commandProcessor(msg)()
-            } else if (Config.voiceChannels.includes(msg.channel.id)) {
-                new Voice(msg).speak(Config.textChannels[Config.voiceChannels.indexOf(msg.channel.id)])
+            } else if (Config.textChannels.includes(msg.channel.id)) {
+                VoiceManager.append(msg)
             } else if (msg.channel.id === Config.jpch) {
                 msg.delete()
-                Client.IO.sendMessage({
-                    to: msg.channel.id,
-                    message: transliterate(msg)
+                const hook = new wd.Webhook(Config.webhook_url)
+                transliterate(msg).then(async res => {
+                    hook.send(
+                        new wd.MessageBuilder()
+                            .setName(msg.author.username,)
+                            .setAvatar(`https://minotar.net/helm/${msg.author.username}`)
+                            .setText(`${res}  \`${msg.content}\``)
+                    )
                 })
             }
         })
     }
-
 }

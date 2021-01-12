@@ -8,17 +8,16 @@
 
 ## 開発者情報
 
-### Init
-
-デフォルトエクスポートでinit()メソッドを定義して下さい。
-### src/index.js
-```javascript
-import "./bot/config.js"
-[
-    "./bot/yuuki.js",
-    "./bot/client.js",
-    //ここに追加
-].map(async it => {
-    (await import(it)).default.init()
-})
+### src/assets/bot.yml
+```yaml
+bot_token: Bot token
+voicetext_token: API key for VoiceText
+extension: Extension for voicedata
+jpch: Japanese channel to be transliterated
+webhook_url: URL for webhook
+channels:
+  1:
+    text: Text channel 1
+    voice: Voice Channel 1
+  ...
 ```

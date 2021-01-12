@@ -8,8 +8,8 @@
 
 ## 開発者情報
 
-Init
-エントリは統一したいのでsrc/index.jsに追加して下さい。
+### Init
+
 デフォルトエクスポートでinit()メソッドを定義して下さい。
 ### src/index.js
 ```javascript

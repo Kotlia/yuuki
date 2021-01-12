@@ -1,6 +1,9 @@
 # yuuki
 
+---
 おやさいの読上げBot - 読上ゆうき君
+---
+
 
 ![Yuuki](https://cdn.discordapp.com/attachments/718050872663212086/798517864570290197/2020-07-02_213857.png)
 

@@ -10,13 +10,13 @@ export default class Yuuki {
     static init() {
         Client.JS.on('message', async msg => {
             if (msg.content.startsWith('/')) {
-                commandProcessor(msg)()
+                commandProcessor(msg)
             } else if (Config.textChannels.includes(msg.channel.id)) {
                 VoiceManager.append(msg)
             } else if (msg.channel.id === Config.jpch) {
                 msg.delete()
                 const hook = new wd.Webhook(Config.webhook_url)
-                transliterate(msg).then(async res => {
+                transliterate(msg).then(res => {
                     hook.send(
                         new wd.MessageBuilder()
                             .setName(msg.author.username,)

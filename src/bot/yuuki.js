@@ -5,7 +5,7 @@ import VoiceManager from "./voice/voiceManager.js";
 import { transliterate } from "./message/transliterate.js";
 import wd from 'webhook-discord'
 import isImage from 'is-image-url'
-import { readFileSync, createWriteStream } from 'fs'
+import { readFileSync, createWriteStream, unlink } from 'fs'
 import fetch from 'node-fetch'
 import imgurUploader from 'imgur-uploader'
 
@@ -29,7 +29,9 @@ export default class Yuuki {
                                             .setName(`${msg.author.username} @ ${msg.channel.name}`)
                                             .setAvatar(msg.author.avatarURL())
                                             .setText(data.link)
-                                    )
+                                    ).then(() => {
+                                        unlink(path, () => {})
+                                    })
                                 })
                             })
                         })

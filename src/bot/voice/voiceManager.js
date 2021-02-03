@@ -1,9 +1,7 @@
 import fs from 'fs'
 import { Config } from "../config.js";
-import execpkg from 'child_process';
+import { exec } from 'child_process';
 import Client from "../client.js";
-
-const exec = execpkg.execSync;
 
 export default class VoiceManager {
 
@@ -30,6 +28,7 @@ export default class VoiceManager {
                     `src/assets/voice/${VoiceManager.queue[0]}.mp3`
                 )
                     .on('finish', () => {
+                        fs.unlink(`src/assets/voice/${VoiceManager.queue[0]}.mp3`, () => {})
                         VoiceManager.queue.shift()
                         setTimeout(() => {
                             if (VoiceManager.queue.length > 0) VoiceManager.speakout(VoiceManager.queue[0])
